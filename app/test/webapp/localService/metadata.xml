@@ -1,0 +1,57 @@
+<?xml version="1.0" encoding="utf-8"?>
+<edmx:Edmx Version="4.0" xmlns:edmx="http://docs.oasis-open.org/odata/ns/edmx">
+    <edmx:Reference Uri="https://sap.github.io/odata-vocabularies/vocabularies/Common.xml">
+        <edmx:Include Alias="Common" Namespace="com.sap.vocabularies.Common.v1"/>
+    </edmx:Reference>
+    <edmx:Reference Uri="https://oasis-tcs.github.io/odata-vocabularies/vocabularies/Org.OData.Core.V1.xml">
+        <edmx:Include Alias="Core" Namespace="Org.OData.Core.V1"/>
+    </edmx:Reference>
+    <edmx:DataServices>
+        <Schema Namespace="myservice" xmlns="http://docs.oasis-open.org/odata/ns/edm">
+            <EntityContainer Name="EntityContainer">
+                <EntitySet Name="table1" EntityType="myservice.table1"/>
+                <EntitySet Name="table2" EntityType="myservice.table2"/>
+                <EntitySet Name="table3" EntityType="myservice.table3"/>
+            </EntityContainer>
+            <EntityType Name="table1">
+                <Key>
+                    <PropertyRef Name="id"/>
+                </Key>
+                <Property Name="id" Type="Edm.Guid" Nullable="false"/>
+                <Property Name="customerName" Type="Edm.String"/>
+                <Property Name="PoNumber" Type="Edm.Int32"/>
+                <Property Name="customerNumber" Type="Edm.Int32"/>
+                <Property Name="soNumber" Type="Edm.Int32"/>
+                <Property Name="orderDate" Type="Edm.Date"/>
+                <Property Name="inquiryNumber" Type="Edm.Int32"/>
+                <Property Name="totalOrderItems" Type="Edm.Int32"/>
+            </EntityType>
+            <EntityType Name="table2">
+                <Key>
+                    <PropertyRef Name="id"/>
+                </Key>
+                <Property Name="id" Type="Edm.Guid" Nullable="false"/>
+                <Property Name="customerName" Type="Edm.String"/>
+                <Property Name="PoNumber" Type="Edm.Int32"/>
+                <Property Name="customerNumber" Type="Edm.Int32"/>
+                <Property Name="soNumber" Type="Edm.Int32"/>
+                <Property Name="orderDate" Type="Edm.Date"/>
+                <Property Name="inquiryNumber" Type="Edm.Int32"/>
+                <Property Name="totalOrderItems" Type="Edm.Int32"/>
+            </EntityType>
+            <EntityType Name="table3">
+                <Key>
+                    <PropertyRef Name="id"/>
+                </Key>
+                <Property Name="id" Type="Edm.String" Nullable="false"/>
+                <Property Name="name" Type="Edm.String"/>
+            </EntityType>
+            <Annotations Target="myservice.table1/id">
+                <Annotation Term="Core.ComputedDefaultValue" Bool="true"/>
+            </Annotations>
+            <Annotations Target="myservice.table2/id">
+                <Annotation Term="Core.ComputedDefaultValue" Bool="true"/>
+            </Annotations>
+        </Schema>
+    </edmx:DataServices>
+</edmx:Edmx>
